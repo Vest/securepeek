@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            id="com.test.securepeek.commands.category"
+            name="Secure Storage">
+      </category>
+      <command
+            categoryId="com.test.securepeek.commands.category"
+            id="com.test.securepeek.commands.sampleCommand"
+            name="Show passwords">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="com.test.securepeek.handlers.Peek"
+            commandId="com.test.securepeek.commands.sampleCommand">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               id="com.test.securepeek.menus.sampleMenu"
+               label="Secure Storage"
+               mnemonic="S">
+            <command
+                  commandId="com.test.securepeek.commands.sampleCommand"
+                  id="com.test.securepeek.menus.sampleCommand"
+                  mnemonic="S">
+            </command>
+         </menu>
+      </menuContribution>      
+   </extension>
+
+</plugin>
